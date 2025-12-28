@@ -30,10 +30,12 @@ ports:
   - containerPort: 8080 # 컨테이너 포트 명시
 readinessProbe:
   httpGet:
+    path: "/actuator/health/readiness"       # 혹은 /health 등 실제 헬스체크 경로
     port: 8080    # 앱이 사용하는 실제 포트로 변경
   initialDelaySeconds: 10 # 앱 구동 시간 고려하여 대기 시간 추가
 livenessProbe:
   httpGet:
+    path: "/actuator/health/liveness"       # 혹은 /health 등 실제 헬스체크 경로
     port: 8080    # 앱이 사용하는 실제 포트로 변경
   initialDelaySeconds: 10 # 앱 구동 시간 고려하여 대기 시간 추가
 
