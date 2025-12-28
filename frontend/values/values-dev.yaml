@@ -28,7 +28,8 @@ imagePullSecrets:
 
 # 환경 변수 (런타임에 주입됨)
 env:
-  API_BASE_URL: "http://growweek-backend-dev.growweek.svc.cluster.local:8080"
+  - name: API_BASE_URL
+    value: "http://growweek-backend-dev.growweek.svc.cluster.local:8080"
 
 # 헬스체크 설정
 livenessProbe:
