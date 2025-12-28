@@ -1,6 +1,8 @@
 nameOverride: "growweek-backend-dev"
 fullnameOverride: "growweek-backend-dev"
 
+replicaCount: 2
+
 ingress:
   enabled: true
   className: "traefik"
@@ -23,3 +25,19 @@ image:
 
 imagePullSecrets:
   - name: "growweek-harbor-secret"
+
+ports:
+  - containerPort: 8080 # 컨테이너 포트 명시
+readinessProbe:
+  httpGet:
+    path: /       # 혹은 /health 등 실제 헬스체크 경로
+    port: 8080    # 앱이 사용하는 실제 포트로 변경
+  initialDelaySeconds: 10 # 앱 구동 시간 고려하여 대기 시간 추가
+livenessProbe:
+  httpGet:
+    path: /       # 혹은 /health 등 실제 헬스체크 경로
+    port: 8080    # 앱이 사용하는 실제 포트로 변경
+  initialDelaySeconds: 10 # 앱 구동 시간 고려하여 대기 시간 추가
+
+service:
+  port: 8080
