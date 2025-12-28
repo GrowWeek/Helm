@@ -1,7 +1,7 @@
 nameOverride: "growweek-frontend-dev"
 fullnameOverride: "growweek-frontend-dev"
 
-replicaCount: 2
+replicaCount: 1
 
 ingress:
   enabled: true
