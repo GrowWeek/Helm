@@ -21,4 +21,5 @@ image:
   repository: "harbor.homlab.robinjoon.xyz/growweek/backend"
   tag: "20251226"
 
-imagePullSecrets: "growweek-harbor-secret"
+imagePullSecrets:
+  - "growweek-harbor-secret"
