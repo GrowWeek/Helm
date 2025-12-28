@@ -18,5 +18,7 @@ ingress:
         secretName: growweek-backend-dev-tls
 
 image:
-  repository: ""
-  tag: "latest"
+  repository: "harbor.homlab.robinjoon.xyz/growweek/backend"
+  tag: "20251226"
+
+imagePullSecrets: "growweek-harbor-secret"
