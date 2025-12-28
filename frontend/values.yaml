@@ -154,6 +154,16 @@ volumeMounts: []
 #   mountPath: "/etc/foo"
 #   readOnly: true
 
+# Environment variables for the container
+env: []
+# - name: MY_ENV_VAR
+#   value: "my-value"
+# - name: SECRET_VAR
+#   valueFrom:
+#     secretKeyRef:
+#       name: my-secret
+#       key: secret-key
+
 nodeSelector: {}
 
 tolerations: []

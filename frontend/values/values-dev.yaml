@@ -1,22 +1,50 @@
 nameOverride: "growweek-frontend-dev"
 fullnameOverride: "growweek-frontend-dev"
 
+replicaCount: 2
+
 ingress:
   enabled: true
+  className: "traefik"
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    className: "traefik"
-    hosts:
-      - host: dev.growweek.robinjoon.xyz
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - hosts:
-          - dev.growweek.robinjoon.xyz
-        secretName: growweek-frontend-dev-tls
+  hosts:
+    - host: dev.growweek.robinjoon.xyz
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - dev.growweek.robinjoon.xyz
+      secretName: growweek-frontend-dev-tls
 
 image:
-  repository: ""
-  tag: "latest"
+  repository: "harbor.homelab.robinjoon.xyz/growweek/frontend"
+  tag: "20251229"
+
+imagePullSecrets:
+  - name: "growweek-harbor-secret"
+
+# 환경 변수 (런타임에 주입됨)
+env:
+  API_BASE_URL: "http://growweek-backend-dev.growweek.svc.cluster.local:8080"
+
+# 헬스체크 설정
+livenessProbe:
+  httpGet:
+    path: /
+    port: 3000
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 3000
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 3
