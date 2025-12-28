@@ -18,7 +18,7 @@ ingress:
         - dev.growweek.robinjoon.xyz
 
 image:
-  repository: "harbor.homlab.robinjoon.xyz/growweek/backend"
+  repository: "harbor.homelab.robinjoon.xyz/growweek/backend"
   tag: "20251226"
 
 imagePullSecrets:
