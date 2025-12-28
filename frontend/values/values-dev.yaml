@@ -1,0 +1,22 @@
+nameOverride: "growweek-frontend-dev"
+fullnameOverride: "growweek-frontend-dev"
+
+ingress:
+  enabled: true
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    className: "traefik"
+    hosts:
+      - host: dev.growweek.robinjoon.xyz
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - hosts:
+          - dev.growweek.robinjoon.xyz
+        secretName: growweek-frontend-dev-tls
+
+image:
+  repository: ""
+  tag: "latest"
