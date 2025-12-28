@@ -13,9 +13,9 @@ ingress:
           - path: /api/
             pathType: Prefix
     tls:
-      - hosts:
+      - secretName: growweek-backend-dev-tls
+        hosts:
           - dev.growweek.robinjoon.xyz
-        secretName: growweek-backend-dev-tls
 
 image:
   repository: "harbor.homlab.robinjoon.xyz/growweek/backend"
