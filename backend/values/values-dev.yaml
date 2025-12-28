@@ -22,4 +22,4 @@ image:
   tag: "20251226"
 
 imagePullSecrets:
-  - "growweek-harbor-secret"
+  - name: "growweek-harbor-secret"
