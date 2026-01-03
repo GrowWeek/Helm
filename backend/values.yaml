@@ -159,3 +159,24 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Environment variables for the container
+# Example:
+# env:
+#   - name: DATABASE_HOST
+#     value: "localhost"
+#   - name: DATABASE_PASSWORD
+#     valueFrom:
+#       secretKeyRef:
+#         name: my-secret
+#         key: password
+env: []
+
+# Environment variables from ConfigMaps or Secrets
+# Example:
+# envFrom:
+#   - secretRef:
+#       name: my-secret
+#   - configMapRef:
+#       name: my-configmap
+envFrom: []
