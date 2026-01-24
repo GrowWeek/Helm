@@ -20,7 +20,7 @@ ingress:
       secretName: growweek-tls
 
 image:
-  repository: "harbor.homelab.robinjoon.xyz/growweek/frontend"
+  repository: "harbor.homelab.robinjoon.xyz/growweek/frontend-landing"
   tag: "20260124-1-landing"
 
 imagePullSecrets:
