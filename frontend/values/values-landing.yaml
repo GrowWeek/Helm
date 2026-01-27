@@ -21,7 +21,7 @@ ingress:
 
 image:
   repository: "harbor.homelab.robinjoon.xyz/growweek/frontend-landing"
-  tag: "20260127-4-landing"
+  tag: "20260127-5-landing"
 
 imagePullSecrets:
   - name: "growweek-harbor-secret"
